@@ -1,8 +1,16 @@
 import { describe, expect, test } from "@jest/globals";
-import Test from "../src/Test";
+import { HeadingCache, SectionCache } from "obsidian";
+import BlockService from "src/processor/BlockService";
 
-describe("sum module", () => {
-	test("adds 1 + 2 to equal 3", () => {
-		expect(new Test().sum(1, 2)).toBe(3);
+describe("block service", () => {
+	test("should return empty array", () => {
+		const input: [string, number, HeadingCache[], SectionCache[]] = [
+			"",
+			1,
+			[],
+			[],
+		];
+
+		expect(new BlockService().fetchBlocks(...input)).toEqual([]);
 	});
 });
