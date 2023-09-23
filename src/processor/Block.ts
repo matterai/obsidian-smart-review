@@ -1,7 +1,7 @@
 export default class Block {
 	heading: string;
-	markdown: string;
-	path: string;
+	paragraphs: string[];
+	source: string;
 
 	constructor() {}
 }

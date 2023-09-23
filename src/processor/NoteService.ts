@@ -6,7 +6,7 @@ export default class NoteService {
 		this.app = app;
 	}
 
-	fetchNotes(workDir: string, sortingKey: string): TFile[] {
+	fetch(workDir: string, sortingKey: string): TFile[] {
 		return this.app.vault
 			.getMarkdownFiles()
 			.filter((file) => file.path.startsWith(workDir))

@@ -1,22 +1,13 @@
-import { Notice, Plugin } from "obsidian";
-import { SettingTab } from "./SettingTab";
-import { Settings, DEFAULT_SETTINGS } from "./Settings";
+import { Plugin } from "obsidian";
+import { SettingTab } from "./PluginSettingTab";
+import { PluginSettings, DEFAULT_SETTINGS } from "./PluginSettings";
 
-export default class MyPlugin extends Plugin {
-	settings: Settings;
+export default class SmartFeedPlugin extends Plugin {
+	settings: PluginSettings;
 
 	async onload() {
 		await this.loadSettings();
 
-		const ribbonIconEl = this.addRibbonIcon(
-			"dice",
-			"Sample Plugin",
-			(evt: MouseEvent) => {
-				new Notice("Hello world");
-			}
-		);
-
-		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new SettingTab(this.app, this));
 	}
 

@@ -4,6 +4,6 @@ import BlockService from "src/processor/BlockService";
 
 describe("Block service", () => {
 	test("Should return empty array", () => {
-		expect(new BlockService().fetchBlocks(new ObsidianTFile())).toEqual([]);
+		expect(new BlockService().fetch(new ObsidianTFile())).toEqual([]);
 	});
 });

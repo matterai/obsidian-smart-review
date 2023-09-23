@@ -4,7 +4,11 @@ import Block from "./Block";
 export default class BlockService {
 	constructor() {}
 
-	fetchBlocks(note: TFile): Block[] {
+	fetch(note: TFile): Block[] {
 		return [];
+	}
+
+	getRandom(Blocks: Block[]): Block {
+		return Blocks[Math.floor(Math.random() * Blocks.length)];
 	}
 }
