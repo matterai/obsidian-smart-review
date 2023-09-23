@@ -21,14 +21,14 @@ export default class BlockService {
 						if (block !== null) blocks.push(block);
 
 						block = new Block();
-						block.source = note.basename;
+						block.source = note.name;
 
 						const heading = content.substring(
 							cache.sections[i - 1].position.start.offset,
 							cache.sections[i - 1].position.end.offset
 						);
 
-						block.heading = heading;
+						block.heading = heading.replace(/#/g, "").trim();
 					}
 
 					const paragraph = content.substring(
@@ -38,7 +38,7 @@ export default class BlockService {
 
 					if (block === null) {
 						block = new Block();
-						block.source = note.basename;
+						block.source = note.name;
 						block.heading = "";
 					}
 
@@ -50,6 +50,7 @@ export default class BlockService {
 				}
 			}
 		}
+
 		return blocks;
 	}
 
