@@ -1,6 +1,6 @@
 export default class Block {
 	heading: string;
-	paragraphs: string[];
+	paragraphs: string[] = [];
 	source: string;
 
 	constructor() {}

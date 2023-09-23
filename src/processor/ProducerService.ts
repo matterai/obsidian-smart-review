@@ -31,10 +31,12 @@ export default class ProducerService {
 		);
 
 		const blocks: Block[] = [];
-		processingNotes.forEach((note) => {
-			const blockService = new BlockService();
-			const noteBlocks = blockService.fetch(note);
-			blocks.push(blockService.getRandom(noteBlocks));
+		const blockService = new BlockService(this.app);
+		processingNotes.forEach(async (note) => {
+			const headingBlocks = await blockService.fetch(note);
+			blocks.push(blockService.getRandom(headingBlocks));
 		});
+
+		console.log(blocks);
 	}
 }
